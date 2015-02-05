@@ -1,3 +1,6 @@
+#!/usr/bin/env ruby
+
+
 p "Start ============================================================================"
 class Animal
   def initialize(name)

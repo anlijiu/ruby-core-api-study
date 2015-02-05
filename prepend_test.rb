@@ -1,3 +1,6 @@
+#!/usr/bin/env ruby
+
+
 module A
   def self.prepended(mod)
     puts "#{self} prepended to #{mod}"

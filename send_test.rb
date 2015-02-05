@@ -1,3 +1,7 @@
+#!/usr/bin/env ruby
+
+
+
 class Klass
   def hello(*args)
     print "Hello " + args.join(' ') + "\n"

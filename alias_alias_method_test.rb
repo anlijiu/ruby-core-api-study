@@ -1,3 +1,6 @@
+#!/usr/bin/env ruby
+
+
 class Array 
   alias :f1 :first
   alias f2 first
