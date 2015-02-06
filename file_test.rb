@@ -40,3 +40,46 @@ Find.find('./') { |path|
 }
 =end
 
+p File.split("/home/anlijiu/me.profile")   #=> ["/home/anlijiu", "me.profile"]
+p File.stat("out").mtime   #=> Tue Apr 08 12:58:04 CDT 2003
+
+f = File.new("out", "w")
+p f.write("1234567890")     #=> 10    无论out里面之前有啥内容， 全抹除然后写入1234567890
+f.close                     #=> nil
+p File.truncate("out", 5)   #=> 0    将文件变成指定大小的长度， 小于源文件大小的话从尾部截取， 大于源文件大小的话从尾部添加hole
+p "File.size('out') => #{File.size("out")}"      #=> 5
+File.umask(0016)   #=> 2      umask 8进制， 0016 => 14
+p File.umask         #=> 14
+p File.join("usr", "mail", "gumby")   #=> "usr/mail/gumby"
+
+open("a", "w") {}
+p File.identical?("a", "a")      #=> true
+p File.identical?("a", "./a")    #=> true
+File.link("a", "b")              #硬链接
+p File.identical?("a", "b")      #=> true
+File.symlink("a", "c")           #软链接
+p File.identical?("a", "c")      #=> true
+open("d", "w") {}
+p File.identical?("a", "d")      #=> false
+
+
+p File.symlink("out", "link2out")   #=> 0     软链接
+p File.stat("out").size              #=> 66
+p File.lstat("link2out").size            #=> 8
+p File.stat("link2out").size             #=> 66
+File.delete("a", "b", "c", "d", "link2out")
+p File.new("out").mtime
+p File.new("out").size
+
+
+
+
+
+
+
+
+
+
+
+
+
