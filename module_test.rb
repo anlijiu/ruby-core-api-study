@@ -426,3 +426,47 @@ module Mod
 end
 Mod.one     #=> "This is one"
 c.call_one  #=> "This is the new one"
+
+#prepended callback
+module A
+  def self.prepended(mod)
+    puts "#{self} prepended to #{mod}"
+  end
+end
+module Enumerable
+  prepend A
+end
+# => prints "A prepended to Enumerable"
+
+module Mod2
+  def a()  end
+  def b()  end
+  private
+  def c()  end
+  private :a
+end
+p Mod2.private_instance_methods   #=> [:a, :c]
+
+class Parent
+  def hello
+    puts "In parent"
+  end
+end
+class Child < Parent
+  def hello
+    puts "In child"
+  end
+end
+
+c = Child.new
+c.hello               # child's hello
+
+class Child
+  remove_method :hello  # remove from child, still in parent
+end
+c.hello               # parent's hello
+
+class Child
+  undef_method :hello   # prevent any calls to 'hello'
+end
+#c.hello               # 所有继承关系的hello 方法全没～
