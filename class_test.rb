@@ -1,8 +1,10 @@
-#!/usr/bin/env ruby 
+#!/usr/bin/env ruby -w
 #
 #
 #原来ruby 里压根就没有类阿 ，都你妈是对象阿，  class Foo ;end  这就是出来个Class 的对象叫Foo 阿
 #Class 是啥 ？ 也是个对象阿 
+
+p Time.now
 
 fred = Class.new do
   def meth1
@@ -17,6 +19,57 @@ a = fred.new     #=> #<#<Class:0x100381890>:0x100376b98>
 p a.meth1          #=> "hello"
 p a.meth2          #=> "bye"
 
+
+module M
+  N = 1
+end
+
+class C
+  include M
+
+  def self.foo
+    puts N
+  end
+
+  class << self
+    def bar
+      puts N
+    end
+  end
+end
+
+C.foo
+# C.bar    # error!  此时self 不再是C  而是""
+
+class Foo
+  class << self
+    a = "aaaa"
+    define_method :puts_a do
+      puts a
+    end
+    def b
+    end
+  end
+end
+
+Foo.puts_a  #=> "aaaa"
+
+class Bar
+  a = "aaaa"
+  class << self
+    def test
+      puts "Bar test"
+    end
+    define_method :puts_a do
+      puts a
+    end
+    def b
+    end
+  end
+end
+
+Bar.test
+# Bar.puts_a  #=> error
 #=======================================================================================
 
 klass = Class.new do
@@ -51,8 +104,8 @@ p File.superclass          #=> IO
 p IO.superclass            #=> Object
 p Object.superclass        #=> BasicObject
 class Foo; end
-class Bar < Foo; end
-p Bar.superclass           #=> Foo
+class BBar < Foo; end
+p BBar.superclass           #=> Foo
 p BasicObject.superclass   #=> nil
 
 =begin
@@ -95,11 +148,11 @@ class Foo
 end
 
 #这个打印出"New subclass: Bar"
-class Bar < Foo
+class Barr < Foo
 end
 
 #这个没有打印出New subclass: Baz 和ruby-doc 上说的不符合阿！
-class Baz < Bar
+class Baz < Barr
 end
 
 Baz.new.ppp.pppp

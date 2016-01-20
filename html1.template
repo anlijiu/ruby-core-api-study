@@ -1,0 +1,49 @@
+ '<table>' +
+ '<thead>' +
+ '<tr>' +
+ '  <th>数据序号</th>' +
+ '  <th align="center">数据头</th>' +
+ '  <th align="right">备注</th>' +
+ '</tr>' +
+ '</thead>' +
+ '<tbody><tr>' +
+ '  <td></td>' +
+ '  <td align="center">$OBD-AMT</td>' +
+ '  <td align="right"></td>' +
+ '</tr>' +
+ '<tr>' +
+ '  <td>1</td>' +
+ '  <td align="center">DST</td>' +
+ '  <td align="right">本次行驶里程(km)</td>' +
+ '</tr>' +
+ '<tr>' +
+ '  <td>2</td>' +
+ '  <td align="center">ADST</td>' +
+ '  <td align="right">累计行驶里程(km)</td>' +
+ '</tr>' +
+ '<tr>' +
+ '  <td>3</td>' +
+ '  <td align="center">TDST</td>' +
+ '  <td align="right">总里程(km)</td>' +
+ '</tr>' +
+ '<tr>' +
+ '  <td>4</td>' +
+ '  <td align="center">FUE</td>' +
+ '  <td align="right">本次耗油量(L)</td>' +
+ '</tr>' +
+ '<tr>' +
+ '  <td>5</td>' +
+ '  <td align="center">TFUE</td>' +
+ '  <td align="right">累计耗油量(L)</td>' +
+ '</tr>' +
+ '<tr>' +
+ '  <td>6</td>' +
+ '  <td align="center">SPDA</td>' +
+ '  <td align="right">本次急加速次数(t)</td>' +
+ '</tr>' +
+ '<tr>' +
+ '  <td>7</td>' +
+ '  <td align="center">SPDB</td>' +
+ '  <td align="right">本次急减速次数(t)</td>' +
+ '</tr>' +
+ '</tbody></table>' +
