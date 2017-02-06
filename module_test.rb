@@ -118,10 +118,17 @@ p Object.const_get 'Foo::Bar'   #=> Foo::Bar
 module Foo
   class Bar
     VAL = 10
+    def bla
+      
+    end
   end
 
   class Baz < Bar; end
 end
+
+p "===============begen"
+p Foo::Bar.new.methods
+p "===============end"
 
 p "Object.const_get 'Foo::Baz::VAL' => #{Object.const_get 'Foo::Baz::VAL'}"         # => 10
 begin

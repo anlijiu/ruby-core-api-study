@@ -12,7 +12,45 @@
 #InstanceMethod就是可以MyClass.new.method的实例方法
 
 
+class A  
+  # defs here go to A  
+  puts self  # => A  
+  class << self  
+    #defs here go to A's eigenclass  
+    #这里定义的方法都为元类方法，即A的static方法
+		def A_class_self
+			puts 'A_class_self'
+		end
+  end  
+end
+A.A_class_self
+  
+A.class_eval do  
+  #这里定义的方法都为类方法，即A的实例可以调用的方法
+  def A_class_eval
+    puts 'A_class_eval'
+  end
+end
 
+A.new.A_class_eval
+  
+A.instance_eval do  
+  #defs here go to A's eigenclass       
+  #这里定义的方法都为元类方法，即A的static方法
+  def instance_eval_ss
+    puts 'instance_eval_ss'
+  end
+end
+A.instance_eval_ss
+  
+s = "Hello World"  
+  
+class << s  
+  def class_s_ss
+    puts 'class << s  -> ss'
+  end
+  #defs here go to s's eigenclass  
+end
 
 class Kitty
   def hi

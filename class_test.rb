@@ -33,13 +33,13 @@ class C
 
   class << self
     def bar
-      puts N
+      puts "class << self,  dynimac def bar !!!"
     end
   end
 end
 
 C.foo
-# C.bar    # error!  此时self 不再是C  而是""
+C.bar
 
 class Foo
   class << self
@@ -149,6 +149,9 @@ end
 
 #这个打印出"New subclass: Bar"
 class Barr < Foo
+  def tttest
+    p "Barr tttest"
+  end
 end
 
 #这个没有打印出New subclass: Baz 和ruby-doc 上说的不符合阿！
@@ -156,6 +159,8 @@ class Baz < Barr
 end
 
 Baz.new.ppp.pppp
+p Baz.new.methods
+p Baz.instance_methods
 
 
 
