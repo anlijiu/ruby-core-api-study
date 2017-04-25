@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+require 'awesome_print'
 
 module Mod
   include Math
@@ -351,12 +352,19 @@ class AA
 end
 class BB < AA
   define_method(:barney, instance_method(:fred))
+
+  define_method :mmmm do |*args, &block|
+    ap args
+    ap block
+  end
 end
 b = BB.new
 b.barney
 b.wilma
 b.create_method(:betty) { p self }
 b.betty
+# BB.action(:mmmm).call({ :aa => "asdfasdf", :bb => "asdfasdf"})
+# b.mmmm({ :aa => "asdfasdf", :bb => "asdfasdf"})
 
 module Picky
   def Picky.extend_object(o)

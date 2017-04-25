@@ -1,8 +1,10 @@
-#!/usr/bin/env ruby -w
+#!/usr/bin/env ruby
 #
 #
 #原来ruby 里压根就没有类阿 ，都你妈是对象阿，  class Foo ;end  这就是出来个Class 的对象叫Foo 阿
 #Class 是啥 ？ 也是个对象阿 
+#
+##########   #class << self 这种用法创建了新的scope(作用域)， 而别的写法就不一定；   class这个关键字 更像一个scope  #######
 
 p Time.now
 
@@ -33,6 +35,7 @@ class C
 
   class << self
     def bar
+      # puts N    ####  这里会报错， 这就是 self.xxx 和  class << self 的区别，因为对于class << self 来说 self scope 是一个新的scope
       puts "class << self,  dynimac def bar !!!"
     end
   end
