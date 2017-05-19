@@ -41,6 +41,10 @@ class C
   end
 end
 
+puts "C.singleton_class is :"
+puts "C.singleton_class has method bar ? => #{C.singleton_class.method_defined? :bar}" 
+puts "C.singleton_class has method foo ? => #{C.singleton_class.method_defined? :foo}"
+
 C.foo
 C.bar
 

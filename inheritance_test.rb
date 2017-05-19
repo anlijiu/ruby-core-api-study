@@ -31,7 +31,9 @@ p "1 类继承==================================================================
 
 p "Dog.superclass is #{Dog.superclass}"
 p "Dog.ancestors are #{Dog.ancestors}"
+p "Dog.ancestors include? Animal #{Dog.ancestors.include? :Animal}"
 p "lassie.respond_to? :upcase #{lassie.respond_to? :upcase}" # => false
+p "lassie.respond_to? :make_noise #{lassie.respond_to? :make_noise}" # => true
 p "lassie.methods are #{lassie.methods}"
 # => I bark "Woof woof".
 # #    I'm a dog.
